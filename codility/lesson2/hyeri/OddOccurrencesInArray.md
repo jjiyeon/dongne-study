@@ -9,5 +9,21 @@
 5. result에 setNumber를 deep copy한다.
 6. 결과값 result를 return 시킨다.
 
-👉 medium2, big1, big2를 통과 하지 못했습니다 ㅠㅜㅠㅜ
+🤔 medium2, big1, big2를 통과 하지 못했습니다 ㅠㅜㅠㅜ
 객체 반복문인 for in을 써야할까 고민중입니당..
+
+<hr/>
+
+두 번째 코드(100%)
+
+👉 참고 블로그 https://slee2540.tistory.com/52
+
+👉 제 코드와 다른점
+
+1. for in문
+2. set 객체 메서드를 let으로 선언
+3. result를 맨 마지막에 선언 후 set을 deep copy함
+4. result[0]으로 return해줬습니다.
+
+🤔 result[0]으로 return을 안해줘도 될거같은데...? 왜 해줬을까요?
+반복문의 종류를 알고 알고리즘을 짜야할것같습니다...

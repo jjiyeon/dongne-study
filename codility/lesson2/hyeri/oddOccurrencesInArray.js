@@ -14,3 +14,19 @@ function solution(A) {
 
   return result;
 }
+
+//두 번째 코드
+function solution(A) {
+  let element = new Set();
+
+  for (let i in A) {
+    if (!element.has(A[i])) {
+      element.add(A[i]);
+    } else {
+      element.delete(A[i]);
+    }
+  }
+
+  const result = [...element];
+  return result[0];
+}
