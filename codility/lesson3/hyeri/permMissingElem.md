@@ -8,4 +8,7 @@
 3. 이때 조건은 i와 A[i]가 같지 않으면 i를 return하게 했다.
    - 😂 i가 0부터 시작해서 숫자가 같지 않아 +1을 해주게 됐다.
 
-👉 empty_and_single, missing_first_or_last, single, double, large_range에서 RUNTIME ERROR가 났다..
+👉 empty_and_single, missing_first_or_last, single, double, large_range에서 RUNTIME ERROR가 났습니다..<br/>
+👉 기존 코드에서 if (A.length === 0 || A.length === []) { return 1;}를 추가해줘도 50%였습니다..
+
+🤔 왜 나는건지 이해가 안되네용.. 감도 못 잡고있는 상태입니다.
