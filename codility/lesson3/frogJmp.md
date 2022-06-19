@@ -26,3 +26,13 @@ X, Y and D are integers within the range [1..1,000,000,000];
 X ≤ Y.
 
 Copyright 2009–2022 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
+
+<hr/>
+<br/>
+
+X: 현재 위치<br/>
+Y: 도착지<br/>
+D: 일정하게 점프하는 거리<br/>
+
+3개의 인자가 주어졌을 때, 개구리가 X에서 Y로 가려면 몇 번 D를 해야하는가를 구하는 문제입니다.
+만약, X: 10, Y: 100, D: 30 이라고 할 때, 3번 점프하면 되므로 3을 반환하면 됩니다!
