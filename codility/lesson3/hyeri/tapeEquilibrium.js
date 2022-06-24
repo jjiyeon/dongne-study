@@ -26,3 +26,26 @@ function solution(A) {
 
   return min;
 }
+
+///
+function solution(A) {
+  const totalSum = A.reduce((a, b) => a + b);
+
+  let leftSum = 0;
+  let rightSum = totalSum;
+  let minDiff = Number.MAX_SAFE_INTEGER;
+  let diff;
+
+  for (let i in A) {
+    leftSum += A[i];
+    rightSum -= A[i];
+
+    diff = Math.abs(leftSum - rightSum);
+
+    if (diff < minDiff) {
+      minDiff = diff;
+    }
+  }
+
+  return minDiff;
+}
