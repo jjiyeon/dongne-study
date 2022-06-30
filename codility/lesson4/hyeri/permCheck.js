@@ -4,7 +4,9 @@ function solution(A) {
 
   const fitNum = A[0];
 
-  for (let i = 0; i < A.length; i++) {
+  if (A[0] !== 1) return 0;
+
+  for (let i = 0; i < A.length - 1; i++) {
     if (A[i] !== fitNum + i) return 0;
   }
   return 1;
