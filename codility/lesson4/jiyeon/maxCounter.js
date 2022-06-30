@@ -27,3 +27,20 @@ function solution(N, A) {
   }
   return counter;
 }
+
+//100%
+function solution(N, A) {
+  let counter = Array.from({ length: N }, () => 0);
+  let max = 0;
+  let maxToSet = 0;
+  for (value of A) {
+    if (value <= N) {
+      counter[value - 1] = Math.max(counter[value - 1] + 1, maxToSet + 1);
+      max = Math.max(counter[value - 1], max);
+    } else {
+      maxToSet = max;
+    }
+  }
+  counter = counter.map((val) => Math.max(val, maxToSet));
+  return counter;
+}
