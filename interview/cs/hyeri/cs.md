@@ -3,6 +3,7 @@
 1. [✔️브라우저란?](#✔️브라우저란?)
 2. [✔️브라우저 주소창에 google 치면 어떤일이 일어날까요?](#✔️브라우저-주소창에-google-치면-어떤일이-일어날까요?)
 3. [✔️용어정리](#✔️용어정리)
+4. [✔️stack, queue란?](#✔️stack,-queue란?)
 
 <br/>
 <hr/>
@@ -51,6 +52,81 @@
   클라이언트와 서버가 서로 통신할 수 있게 하기 위한 언어를 정의하는 어플리케이션 규약으로, 쉽게 말해 요청과 응답으로 이루어져있어 "어떤 데이터 주세요"라고 요청하면, "이 데이터 줄게요" 라고 응답하는 것이라고 할 수 있다.
   주로 HTML문서를 주고 받는데에 사용된다.
 
+---
+
+### ✔️stack, queue란?
+
+<b>큐(Queue)?</b>
+
+- 데이터를 집어넣을 수 있는 선형(linear) 자료형<br/>
+- 먼저 집어넣은 데이터가 먼저 나옴 = FIFO(First In First Out)라고 한다.<br/>
+- 순서대로 처리해야 하는 작업을 임시로 저장해두는 버퍼(buffer)로서 많이 사용<br/>
+
+```
+class Queue {
+  constructor() {
+    this._arr = [];
+  }
+  enqueue(item) {
+    this._arr.push(item);
+  }
+  dequeue() {
+    return this._arr.shift();
+  }
+}
+
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+queue.dequeue();
+```
+
+<br/>
+
+<b>스택 (Stack)</b>
+
+- 나중에 집어넣은 데이터가 먼저 나옴 = LIFO(Last In First Out)
+- 데이터를 집어넣는 push, 데이터를 추출하는 pop, 맨 나중에 집어넣은 데이터를 확인하는 peek 등의 작업을 할 수 있다.
+- 서로 관계가 있는 여러 작업을 연달아 수행하면서 이전의 작업 내용을 저장해 둘 필요가 있을 때 널리 사용<br/>
+
+```
+class Stack {
+  constructor() {
+    this._arr = [];
+  }
+  push(item) {
+    this._arr.push(item);
+  }
+  pop() {
+    return this._arr.pop();
+  }
+  peek() {
+    return this._arr[this._arr.length - 1];
+  }
+}
+
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.pop();
+```
+
+<br/>
+
+<b>트리 (Tree)</b>
+
+- 여러 데이터가 계층 구조 안에서 서로 연결된 형태를 나타낼 때 사용
+
+<br/>
+
+<b>스택은 어디에 쓰일까?</b>
+
+- ctrl + z를 활용해서 되돌리거나 되돌리기를 취소할 때 스택을 통해 구현함
+
+<br/>
+
 ### 🌐 참고 사이트
 
 <a href="https://velog.io/@eassy/www.google.com%EC%9D%84-%EC%A3%BC%EC%86%8C%EC%B0%BD%EC%97%90%EC%84%9C-%EC%9E%85%EB%A0%A5%ED%95%98%EB%A9%B4-%EC%9D%BC%EC%96%B4%EB%82%98%EB%8A%94-%EC%9D%BC" target="_blank">'www.google.com'을 주소창에서 입력하면 일어나는 일</a>
@@ -58,3 +134,9 @@
 <a href="https://velog.io/@khy226/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%97%90-url%EC%9D%84-%EC%9E%85%EB%A0%A5%ED%95%98%EB%A9%B4-%EC%96%B4%EB%96%A4%EC%9D%BC%EC%9D%B4-%EB%B2%8C%EC%96%B4%EC%A7%88%EA%B9%8C" target="_blank">브라우저에 url을 입력하면 어떤일이 벌어질까?</a>
 
 <a href="https://all-young.tistory.com/22" target="_blank">브라우저와 렌더링 엔진 동작 원리</a>
+
+<a href="https://helloworldjavascript.net/pages/282-data-structures.html" target="_blank">큐, 스택, 트리</a>
+
+<a href="https://overcome-the-limits.tistory.com/14" target="_blank">[자료구조] 스택 with JavaScript</a>
+
+---
