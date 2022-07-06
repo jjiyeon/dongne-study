@@ -41,3 +41,5 @@ URI는 Uniform Resource Identifier의 약어로 통합자원 식별자, 인터�
 - 500 번대 : 서버쪽 에러
   - 501 : Not Implemented, 요청한 동작에 대해 서버가 수행할 수 없는 경우
   - 503 : Service Unavailable, 서버가 과부하 또는 유지 보수로 내려간 경우
+
+> 참고한 출처 [https://www.zerocho.com/category/HTTP/post/5b3723477b58fc001b8f6385][https://joshua1988.github.io/web-development/http-part1/][https://hongsii.github.io/2017/08/02/what-is-the-difference-get-and-post/]
