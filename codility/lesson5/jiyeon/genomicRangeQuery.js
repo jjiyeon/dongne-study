@@ -18,3 +18,23 @@ function solution(S, P, Q) {
   }
   return result;
 }
+//100%
+function solution(S, P, Q) {
+  let leng = [];
+  let result = [];
+  for (let i in P) {
+    leng.push(S.substring(P[i], Q[i] + 1));
+  }
+  for (let i in leng) {
+    if (leng[i].includes("A")) {
+      result.push(1);
+    } else if (leng[i].includes("C")) {
+      result.push(2);
+    } else if (leng[i].includes("G")) {
+      result.push(3);
+    } else if (leng[i].includes("T")) {
+      result.push(4);
+    }
+  }
+  return result;
+}
