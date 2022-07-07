@@ -30,3 +30,5 @@
 # 4. minAvgTwoSlice
 
 아직 여러 문제를 많이 접하지 않아서 일까 문제가 이해가 갔지만, 코드로 어떻게 풀어야 할지 몰랐던 문제다. 그래서 문제 이해 후, 풀이는 검색을 해봤다. slice가 2또는 3개인 경우만 고려하면 된다고 한다. 평균의 성질로 부분집합의 평균은 가장 작은 인자보다 항상 크다고. 그래서 풀이 코드에서 2개의 합과 3개의 합만 조건으로 둔다.
+참고 풀이
+[https://velog.io/@dosanahnchangho/%EC%BD%94%EB%94%9C%EB%A6%AC%ED%8B%B0-MinAvgTwoSlice-javascript],[https://yceffort.kr/2020/06/codility-05-03-min-avg-two-slice]
