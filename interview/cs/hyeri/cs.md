@@ -140,7 +140,4 @@ stack.pop();
 
 <a href="https://overcome-the-limits.tistory.com/14" target="_blank">[자료구조] 스택 with JavaScript</a>
 
-<a href="https://velog.io/@nowhhk/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9C" target="_blank">프로세스와 스레드 & 자바스크립트의 동작방식
-</a>
-
 ---
