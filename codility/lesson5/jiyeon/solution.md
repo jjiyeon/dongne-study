@@ -16,3 +16,19 @@
 
 더 짧은 코드가 있었지만, 직관적으로 이해하기 쉬운 코드를 참고했다.
 [https://sustainable-dev.tistory.com/12]
+
+# 3. genomicRangeQuery
+
+문제를 이해한대로 코딩하면 63%가 나오는데, 퍼포먼스에서 걸리는것 같다. 먼저 이해한대로 구현한 방법은
+
+1. 영향계수를 dna와 key value로 이뤄진 객체를 만든다
+2. S 문자열에서 P - Q 인덱스까지 뽑아낸 배열을 만든다
+3. 2번에서 뽑은 배열의 사이즈만큼 돌면서, dna의 value의 최소값을 결과변수에 넣어주고 리턴해주는 방법을 생각했다.
+
+퍼포먼스를 올리기 위해 includes로 찾아서 바로 결과값에 push했는데, 통과됐다. 초반에 너무 어렵게 생각한것 같다.
+
+# 4. minAvgTwoSlice
+
+아직 여러 문제를 많이 접하지 않아서 일까 문제가 이해가 갔지만, 코드로 어떻게 풀어야 할지 몰랐던 문제다. 그래서 문제 이해 후, 풀이는 검색을 해봤다. slice가 2또는 3개인 경우만 고려하면 된다고 한다. 평균의 성질로 부분집합의 평균은 가장 작은 인자보다 항상 크다고. 그래서 풀이 코드에서 2개의 합과 3개의 합만 조건으로 둔다.
+참고 풀이
+[https://velog.io/@dosanahnchangho/%EC%BD%94%EB%94%9C%EB%A6%AC%ED%8B%B0-MinAvgTwoSlice-javascript],[https://yceffort.kr/2020/06/codility-05-03-min-avg-two-slice]
