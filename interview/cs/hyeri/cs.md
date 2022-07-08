@@ -127,6 +127,20 @@ stack.pop();
 
 <br/>
 
+### ✔️프로세스와 스레드
+
+<b>프로세스</b>
+
+- 운영체제 위에서 연속적으로 실행되고 있는 프로그램
+  <br/>
+
+<b>스레드</b>
+
+- 쓰레드는 자기들만이 수행해야 되는 함수의 호출을 기억해야 되기 때문에 스레드마다 스택이 할당되어져 있다.
+
+<br/>
+<br/>
+
 ### 🌐 참고 사이트
 
 <a href="https://velog.io/@eassy/www.google.com%EC%9D%84-%EC%A3%BC%EC%86%8C%EC%B0%BD%EC%97%90%EC%84%9C-%EC%9E%85%EB%A0%A5%ED%95%98%EB%A9%B4-%EC%9D%BC%EC%96%B4%EB%82%98%EB%8A%94-%EC%9D%BC" target="_blank">'www.google.com'을 주소창에서 입력하면 일어나는 일</a>
@@ -138,5 +152,8 @@ stack.pop();
 <a href="https://helloworldjavascript.net/pages/282-data-structures.html" target="_blank">큐, 스택, 트리</a>
 
 <a href="https://overcome-the-limits.tistory.com/14" target="_blank">[자료구조] 스택 with JavaScript</a>
+
+<a href="https://velog.io/@nowhhk/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9C" target="_blank">프로세스와 스레드 & 자바스크립트의 동작방식
+</a>
 
 ---
