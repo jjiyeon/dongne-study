@@ -7,4 +7,17 @@
 상위 기관에서 인증된 기관에게 도메인을 생성하거나 IP 주소로 변경할 수 있는 ‘권한’을 부여한다.
 DNS는 이처럼 상위 기관과 하위 기관과 같은 ‘계층 구조’를 가지는 분산 데이터베이스 구조를 가진다.
 
+## 동작과정
+
+1. 웹 브라우저에 www.hanamon.kr을 입력한다.
+2. 웹 브라우저는 이전에 방문한적 있는지 찾는다.
+   - 브라우저 캐시 확인
+   - OS 캐시 확인
+   - 라우터 캐시 확인
+   - ISP 캐시 확인 (Recursive DNS Server)
+3. ISP에서 DNS Iterative하게 쿼리를 날린다.
+4. ISP는 Authoritative DNS 서버에서 최종적으로 IP 주소를 응답받는다.
+5. ISP는 해당 IP 주소를 캐시한다.
+6. 웹 브라우저에게 응답한다.
+
 > 참고 출처 [https://hanamon.kr/dns%EB%9E%80-%EB%8F%84%EB%A9%94%EC%9D%B8-%EB%84%A4%EC%9E%84-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EB%85%90%EB%B6%80%ED%84%B0-%EC%9E%91%EB%8F%99-%EB%B0%A9%EC%8B%9D%EA%B9%8C%EC%A7%80/]
