@@ -1,0 +1,10 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "build",
+    "target": "ES6", //타입스크립트가 컴파일할 자바스크립트 버전
+    "lib": ["ES6", "DOM"], //타입스크립트가 컴파일 될 환경
+    "strict": true, // 좀 더 엄격한 모드, 타입확인을 강하게 할 것이다
+    "allowJs": true //타입스크립트안에서 자바스크립트를 사용할 수 있다
+  }
+}
