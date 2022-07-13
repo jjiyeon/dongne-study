@@ -3,6 +3,7 @@
 1. [✔️클래스형 컴포넌트와 함수형 컴포넌트의 차이](#✔️클래스형-컴포넌트와-함수형-컴포넌트의-차이)
 2. [✔️제어 컴포넌트와 비제어 컴포넌트의 차이](#✔️제어-컴포넌트와-비제어-컴포넌트의-차이)
 3. [✔️생명주기 메서드](#✔️생명주기-메서드)
+4. [✔️리액트 렌더링 성능 향상](#✔️리액트-렌더링-성능-향상)
 
 <br/>
 <hr/>
@@ -164,8 +165,67 @@ React 컴포넌트의 render() 함수가 동일한 props와 state에 대하여 �
 
 <br/>
 
+<b>useMemo</b>
+
+```
+useMemo(()=> func, [input_dependency])
+
+func은 캐시하고 싶은 함수
+input_dependency는 useMemo가 캐시할 func에 대한 입력의 배열로서 해당 값들이 변경되면 func이 호출
+
+const average = useMemo(() => {
+    console.log("calculate average. It takes long time !!");
+    return users.reduce((acc, cur) => {
+        return acc + cur.score / users.length;
+    }, 0);
+}, [users]);
+```
+
+- React에서 CPU 소모가 심한 함수들을 캐싱하기 위해 사용하는 메서드
+- 종속 변수들이 변하지 않으면 함수를 굳이 다시 호출하지 않고 이전에 반환한 참조값을 재사용함
+
+<b>React.memo 컴포넌트 메모이제이션</b>
+
+- React.memo는 Hook이 아니기 때문에 클래스형 컴포넌트에서도 사용할 수 있다
+- 컴포넌트의 props가 바뀌지 않았다면, 리렌더링하지 않도록 설정하여 함수형 컴포넌트의 리렌더링 성능을 최적화 해줌
+
+```
+import React,{ memo } from "react";
+
+function Item({ user }) {
+  console.log("Item component render");
+
+  return (
+    <div className="item">
+      <div>이름: {user.name}</div>
+      <div>나이: {user.age}</div>
+      <div>점수: {user.score}</div>
+      <div>등급: {result.grade}</div>
+    </div>
+  );
+}
+
+export default memo(Item);
+
+//새로 추가된 Item만 새로 렌더되고 이미 렌더된 Item들은 리렌더링 되지 않는다.
+```
+
+<b>useCallback</b>
+
+- useMemo와 비슷한 useCallback은 함수 선언을 memoize 하는데 사용
+- 종속 변수들이 변하지 않는 이상 함수를 재생성하지 않고 이전에 있던 참조 변수를 그대로 하위 컴포넌트에 props로 전달 (= 리렌더링 방지)
+
+<b>컴포넌트를 매핑할 때에는 key값으로 index를 사용하지 않는다</b>
+
+1. 어떤 배열에 중간에 어떤 요소가 삽입될때 그 중간 이후에 위치한 요소들은 전부 index가 변경
+2. key값이 변경되어 React는 key가 동일 할 경우, 동일한 DOM Element를 보여주기 때문에 예상치 못한 문제가 발생
+3. 데이터가 key와 매치가 안되어 서로 꼬이는 부작용도 발생
+
+<br/>
+
 ### 🌐 참고 사이트
 
+<br/>
 <a href="https://ludeno-studying.tistory.com/87" target="_blank">React 함수형 컴포넌트, 클래스형 컴포넌트 차이점</a>
 
 <a href="https://ko.reactjs.org/docs/uncontrolled-components.html" target="_blank">비제어 컴포넌트</a>
@@ -177,5 +237,7 @@ React 컴포넌트의 render() 함수가 동일한 props와 state에 대하여 �
 <a href="https://react.vlpt.us/basic/25-lifecycle.html" target="_blank">LifeCycle Method</a>
 
 <a href="https://ko.reactjs.org/docs/react-api.html#reactpurecomponent" target="_blank">React.PureComponentd</a>
+
+<a href="https://velog.io/@shin6403/React-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EB%8A%94-7%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95-Hooks-%EA%B8%B0%EC%A4%80" target="_blank">React 렌더링 성능 최적화하는 7가지 방법 (Hooks 기준)</a>
 
 ---
