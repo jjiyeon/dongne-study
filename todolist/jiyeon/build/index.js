@@ -1,11 +1,3 @@
-"use strict";
-class Todo {
-    constructor(data) {
-        this.data = data;
-    }
-    hello() {
-        return `hello ${this.data}`;
-    }
-}
-const todo = new Todo("typescript").hello();
-console.log(todo);
+import TodoList from "./components/TodoList";
+const target = document.querySelector(".container");
+const todo = new TodoList(target);
