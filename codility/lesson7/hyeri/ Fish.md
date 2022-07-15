@@ -26,3 +26,5 @@ function solution(A, B) {
 
 문제는 이해가 가는데 어떻게 짜야할지 몰라서 답을 봤당.. 😢 <br/>
 생각보다 쉬운 코드에 허탈.... 😞
+
+👉 참고 블로그: https://miiingo.tistory.com/329
