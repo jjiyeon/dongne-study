@@ -27,6 +27,7 @@ form?.addEventListener("submit", (e) => {
   };
 
   tasks.push(newTask);
+  saveTasks();
 
   addListItem(newTask);
   input.value = "";
