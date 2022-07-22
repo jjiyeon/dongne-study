@@ -4,6 +4,11 @@
 2. [✔️제어 컴포넌트와 비제어 컴포넌트의 차이](#✔️제어-컴포넌트와-비제어-컴포넌트의-차이)
 3. [✔️생명주기 메서드](#✔️생명주기-메서드)
 4. [✔️리액트 렌더링 성능 향상](#✔️리액트-렌더링-성능-향상)
+5. [✔️useMemo와 useCallback의 차이](#✔️useMemo와-useCallback의-차이)
+6. [✔️state변경 시 useState를 사용하는 이유](#✔️state변경-시-useState를-사용하는-이유)
+7. [✔️useLayoutEffect와 useEffect의 차이](#✔️useLayoutEffect와-useEffect의-차이)
+
+###
 
 <br/>
 <hr/>
@@ -223,6 +228,69 @@ export default memo(Item);
 
 <br/>
 
+### ✔️useMemo와 useCallback의 차이
+
+> memoization?<br/>
+> 기존에 수행한 연산의 결과값을 어딘가에 저장해두고 동일한 입력이 들어오면 재활용하는 프로그래밍 기법
+
+<b>useMemo</b>
+
+- useMemo는 이전 값을 기억해두었다가 조건에 따라 재활용하여 성능을 최적화 하는 용도로 사용된다. (= memoization된 값을 반환)
+
+<b>useCallback</b>
+
+- 리액트의 렌더링 성능을 위해서 제공되는 Hook
+- memoization된 새로운 함수를 반환
+
+<br/>
+
+### ✔️props와 state의 차이
+
+👉 참고 블로그: https://velog.io/@jetom/3.4-state
+
+<br/>
+
+### ✔️state변경 시 useState를 사용하는 이유
+
+<br/>
+
+- state는 immutable(불변성)을 유지해야함
+- state와 setState를 비교해서 업데이트가 필요한 경우에만 render 함수를 호출
+- 상태 변경을 추적하고 변경에 따라 구성요소를 다시 렌더링하려면 setState를 사용
+
+<br/>
+
+### ✔️useLayoutEffect와 useEffect의 차이
+
+<br/>
+
+<b>useEffect</b>
+
+- 컴포넌트 렌더링 → 화면 업데이트 → useEffect실행
+- 비동기적으로 실행됨
+- DOM과 인터렉션이 없는 경우 사용(대부분 경우)
+
+<b>useLayoutEffect</b>
+
+- 컴포넌트 렌더링 → useLayoutEffect 실행 → 화면 업데이트
+- 동기적으로 실행됨
+- 렌더링 직후 DOM요소의 값을 읽을 때 유용함(scroll position등)
+- DOM을 mutate할 경우에 사용
+
+DOM을 변경해야 하는 경우나 계산된 state 값을 화면에 표출해야 하는 경우에는 useLayoutEffect를 사용하는 것이 좋다.
+
+데이터 fetch 함수 실행 혹은 이벤트 핸들러, state를 다루는 작업 등 모든 경우에는 useEffect를 사용
+
+```
+🔍 useEffect를 사용할 경우 effect가 실행됨과 동시에 DOM에 mutation이 일어날 경우 flickering이 발생할 수 있다. 이러한 경우 useLayoutEffect를 사용해서 flickering을 막을 수 있다.
+
+결국 두 hook의 가장 큰 차이점은 실행 시점이다.
+
+flickering: 화면이 깜빡거리는 현상
+```
+
+<br/>
+
 ### 🌐 참고 사이트
 
 <br/>
@@ -239,5 +307,14 @@ export default memo(Item);
 <a href="https://ko.reactjs.org/docs/react-api.html#reactpurecomponent" target="_blank">React.PureComponentd</a>
 
 <a href="https://velog.io/@shin6403/React-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EB%8A%94-7%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95-Hooks-%EA%B8%B0%EC%A4%80" target="_blank">React 렌더링 성능 최적화하는 7가지 방법 (Hooks 기준)</a>
+
+<a href="https://mari-mo.tistory.com/214" target="_blank">state를 직접 변경하지 않고 setState를 사용하는 이유에 대해서 설명하세요.
+</a>
+
+<a href="https://velog.io/@suyeonme/react-useLayout%EA%B3%BC-useEffect%EC%9D%98-%EC%B0%A8%EC%9D%B4" target="_blank">[react] useLayoutEffect과 useEffect의 차이
+</a>
+
+<a href="https://guiyomi.tistory.com/120" target="_blank">React.js - useEffect vs useLayoutEffect 차이점 알아보기
+</a>
 
 ---
