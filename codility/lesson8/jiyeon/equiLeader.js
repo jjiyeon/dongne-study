@@ -1,38 +1,31 @@
-//0%
 function solution(A) {
-  let count = 0;
-  let leftHalf = A.slice(0, A.length / 2);
-  let rightHalf = A.slice(A.length / 2, A.length);
-  let resultA = 0;
-  let resultB = 0;
-  let calcA = leftHalf.reduce((all, item) => {
-    if (item in all) {
-      all[item]++;
-    } else {
-      all[item] = 1;
-    }
-    return all;
-  }, {});
-  let calcB = rightHalf.reduce((all, item) => {
-    if (item in all) {
-      all[item]++;
-    } else {
-      all[item] = 1;
-    }
-    return all;
-  }, {});
+  let map = new Map();
+  let max = 0;
+  let index = 0;
+  let result = 0;
+  let count = 0; //리더값 갯수
 
-  for (i in calcA) {
-    if (calcA[i] > leftHalf.length / 2) {
-      resultA = Number(i);
+  for (let i = 0; i < A.length; i++) {
+    if (map.has(A[i])) {
+      map.set(A[i], Number(map.get(A[i])) + 1);
+      if (max < map.get(A[i])) {
+        max = map.get(A[i]);
+        index = A[i];
+      }
+    } else {
+      map.set(A[i], 1);
+    }
+  }
+
+  if (max < A.length / 2) return 0;
+
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] === index) {
       count++;
+      map.set(index, Number(map.get(index)) - 1);
     }
+    if (map.get(index) > (A.length - (i + 1)) / 2 && count > (i + 1) / 2)
+      result++;
   }
-  for (i in calcB) {
-    if (calcB[i] > rightHalf.length / 2) {
-      resultB = Number(i);
-    }
-  }
-
-  return resultA === resultB ? count + 1 : count;
+  return result;
 }
