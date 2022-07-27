@@ -12,3 +12,20 @@
 코드가 약간 너저분한데, 간결하게 수정을 해야할것 같다.
 
 > reduce 예제를 보면 생각보다 많은곳에 적용할 수 있을것 같다![https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#%EC%98%88%EC%A0%9C]
+
+
+## 2. equilLeader
+
+내가 이해한 문제는 A배열을 두개로 나눈 배열의 리더가 동일한 갯수 찾기.
+1. 배열에서 중복인 리더 숫자
+2. 배열을 반으로 쪼갰을때 절반값보다 더 많이 나오는 리더 숫자를 찾는것이다.
+
+key와 value로 중복되는 숫자를 찾기 위해 map을 사용했다.
+```
+let max = 0; // 중복된 리더수를 담을 변수
+let index = 0; // 리더의 인덱스
+let count = 0; // 배열을 반으로 쪼개도 나오는 리더숫자의 갯수
+```
+
+이해한 내용을 설명하기가 어렵다. 잘 설명된 블로그를 첨부
+> 참고 [https://hwan-shell.tistory.com/112]
